@@ -134,4 +134,7 @@ gsub_file 'spec/spec_helper.rb',
           'config.warnings = false'
 gsub_file '.rspec', '--warnings', ''
 
+# Remove skips so we can test controller specs work
+gsub_file 'spec/controllers/wombats_controller_spec.rb', /skip\(.*\)$/, ''
+
 final_tasks

@@ -16,6 +16,11 @@ Enhancements:
   Justice, #1689)
 * Add support for generating scaffolds for api app specs. (Krzysztof Zych, #1685)
 
+Bug Fixes:
+
+* Fix scaffold generator so that it does not generate broken controller specs
+  on Rails 3.x and 4.x. (Yuji Nakayama, #1710)
+
 ### 3.5.2 / 2016-08-26
 [Full Changelog](http://github.com/rspec/rspec-rails/compare/v3.5.1...v3.5.2)
 

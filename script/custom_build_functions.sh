@@ -2,6 +2,13 @@ function run_cukes {
   bin/rake acceptance --trace
 }
 
+function run_additional_specs {
+  bin/rake generate:app generate:stuff
+  pushd tmp/example_app
+  bundle exec rspec
+  popd
+}
+
 # rspec-rails depends on all of the other rspec repos. Conversely, none of the
 # other repos have any dependencies with rspec-rails directly. If the other
 # repos have issues, the rspec-rails suite and cukes would fail exposing them.

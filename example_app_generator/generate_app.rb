@@ -22,7 +22,7 @@ in_root do
   gsub_file "Gemfile", /.*debugger.*/, ''
 
   if Rails::VERSION::STRING >= '5.0.0'
-    append_to_file('Gemfile', "gem 'rails-controller-testing', :git => 'https://github.com/rails/rails-controller-testing'\n")
+    append_to_file('Gemfile', "gem 'rails-controller-testing', github: 'yujinakayama/rails-controller-testing', branch: 'debug'\n")
   end
 
   # Nokogiri version is pinned in rspec-rails' Gemfile since it tend to cause installation problems
@@ -50,6 +50,7 @@ in_root do
     |    :groups => [:development, :test]
     |eval_gemfile '#{rspec_dependencies_gemfile}'
     |eval_gemfile '#{rails_dependencies_gemfile}'
+    |gem 'foobarbaz', github: 'yujinakayama/foobarbaz'
   EOT
 
   copy_file maintenance_branch_file, 'maintenance-branch'

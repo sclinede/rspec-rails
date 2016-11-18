@@ -5,7 +5,7 @@ function run_cukes {
 function run_additional_specs {
   bin/rake generate:app generate:stuff
   pushd tmp/example_app
-  bundle exec rspec
+  ./bin/rspec
   popd
 }
 

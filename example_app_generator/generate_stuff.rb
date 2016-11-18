@@ -139,4 +139,15 @@ gsub_file 'spec/controllers/gadgets_controller_spec.rb',
           'skip("Add a hash of attributes valid for your model")',
           '{}'
 
+prepend_to_file 'spec/spec_helper.rb', <<-'END'
+module Foo
+  def require(*)
+    puts "require from #{caller.first}"
+    super
+  end
+end
+
+include Foo
+END
+
 final_tasks
